@@ -14,5 +14,12 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/', 'HomeController@index');
-Route::get('/about', 'HomeController@add');
+Route::get('/', 'CrudController@index');
+Route::get('/dodaj', 'CrudController@dodaj');
+Route::post('/save', [
+	'uses'	=>	'CrudController@save',
+	'as'	=>	'hC.save'
+]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
